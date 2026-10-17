@@ -9,6 +9,7 @@ import Skills from './components/Skills';
 import Journey from './components/Journey';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import PortfolioCredits from './components/PortfolioCredits';
 import usePortfolioMotion from './hooks/usePortfolioMotion';
 
 const sectionComponents = {
@@ -50,6 +51,7 @@ export default function App() {
             const Component = sectionComponents[s.id];
             return Component ? <Component key={s.id} motionPaused={motionPaused} /> : null;
           })}
+        <PortfolioCredits />
       </main>
       <Footer />
     </div>

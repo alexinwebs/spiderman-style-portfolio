@@ -22,8 +22,6 @@ export default function Hero() {
       el.style.setProperty('--spot-radius',`${radius}px`);
       el.style.setProperty('--reveal-opacity',`${alpha}`);
       el.style.setProperty('--motion-blur',`${blur.toFixed(2)}px`);
-      el.style.setProperty('--ghost-x',`${still() ? 0 : Math.max(-5,Math.min(5,dx * -.08))}px`);
-      el.style.setProperty('--ghost-alpha',`${still() ? 0 : Math.min(.14,speed*.002)}`);
       frame = speed > .1 || Math.abs(alpha - (active ? 1 : 0)) > .001 || blur > .01 ? requestAnimationFrame(tick) : 0;
     };
     api.current = {
@@ -67,7 +65,6 @@ export default function Hero() {
             onPointerDown={e=>{if(e.pointerType!=='mouse')api.current?.tap(e);}}
             onFocus={e=>{if(e.currentTarget.matches(':focus-visible'))api.current?.focus();}} onBlur={()=>api.current?.hide()}
             onKeyDown={e=>{if(e.key==='Escape')api.current?.hide();if(e.key==='Enter'||e.key===' '){e.preventDefault();api.current?.focus();}}}>
-            <img className="character-ghost" src={profile.heroMasked} alt="" width="728" height="720" aria-hidden="true" />
             <img className="character-base" src={profile.heroMasked} alt="Spider-Man in a red and navy webbed suit" width="728" height="720" fetchPriority="high" />
             <span className="face-window"><img className="character-reveal" src={profile.heroUnmasked} alt="" width="728" height="720" /></span>
             <span className="reveal-hint"><span className="hover-label">HOVER TO REVEAL</span><span className="touch-label">TOUCH THE MASK TO REVEAL</span> ↗</span>

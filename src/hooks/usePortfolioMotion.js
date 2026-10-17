@@ -14,8 +14,7 @@ export default function usePortfolioMotion(root, paused) {
         entrance.from('.hero-eyebrow',{y:12,opacity:0,duration:.55})
           .from('.hero-line>span',{yPercent:105,rotation:2,duration:.85,stagger:.1},.12)
           .from('.hero-role,.hero-positioning',{y:15,opacity:0,stagger:.1,duration:.7},.4)
-          .from('.hero-actions,.hero-byline',{y:18,opacity:0,stagger:.09,duration:.65},.45)
-          .from('.hero-art-shell',{y:35,opacity:0,filter:'blur(7px)',duration:1.05},.25);
+          .from('.hero-actions,.hero-byline',{y:18,opacity:0,stagger:.09,duration:.65},.45);
         gsap.utils.toArray('.ribbon-track').forEach((track,i)=>gsap.to(track,{
           xPercent:i?50:-50,startAt:{xPercent:i?-50:0},duration:i?32:25,repeat:-1,ease:'none'}));
 
@@ -65,12 +64,10 @@ export default function usePortfolioMotion(root, paused) {
         const cleanups=[];
         if(context.conditions.fine){
           const hero=root.current.querySelector('.hero');
-          const art=gsap.quickTo('.hero-depth','x',{duration:.8,ease:'power3.out'});
-          const artY=gsap.quickTo('.hero-depth','y',{duration:.8,ease:'power3.out'});
           const webX=gsap.quickTo('.hero-bottom-web','x',{duration:1,ease:'power3.out'});
           const webY=gsap.quickTo('.hero-bottom-web','y',{duration:1,ease:'power3.out'});
-          const move=e=>{const r=hero.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;art(x*12);artY(y*8);webX(x*-20);webY(y*-14);};
-          const reset=()=>{art(0);artY(0);webX(0);webY(0);};
+          const move=e=>{const r=hero.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;webX(x*-20);webY(y*-14);};
+          const reset=()=>{webX(0);webY(0);};
           hero.addEventListener('pointermove',move);hero.addEventListener('pointerleave',reset);
           cleanups.push(()=>{hero.removeEventListener('pointermove',move);hero.removeEventListener('pointerleave',reset);});
         }

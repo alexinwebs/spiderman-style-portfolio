@@ -118,3 +118,9 @@ h2{font-weight:700;letter-spacing:-.8px}.reference-heading h2{font-size:46px}.ab
 @media(prefers-reduced-motion:reduce){.workflow-step:hover{transform:none}.workflow-step:active,.button:active,.skill-row:active{scale:1}.hero-depth{will-change:auto}}
 .workflow-step{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start}.workflow-cue{margin-top:auto;padding-top:15px}.ai-workflow :focus-visible{outline-color:#ff8096;outline-offset:3px}
 @media(max-width:360px){.workflow-step{display:grid}.workflow-cue{margin-top:0}}
+
+/* v5.1 — a stationary hero character; face-reveal interaction is preserved. */
+.hero-depth{transform:none!important;will-change:auto}.character-base{transform:none;animation:none}.character-ghost{display:none}.hero-art-shell{filter:none}
+.portfolio-credits{padding:64px 0;border-top:1px solid var(--line);background:#efede7}.credits-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:64px}.portfolio-credits h2{font-size:32px;line-height:1.15;margin-bottom:20px}.portfolio-credits h2 span{color:var(--red)}.portfolio-credits p:not(.eyebrow){font-size:14px;line-height:1.85;color:#514c4d;max-width:590px}.portfolio-credits p+p{margin-top:12px}.reuse-note{padding-left:26px;border-left:2px solid var(--red)}.reuse-note h3{font-size:12px;letter-spacing:1px;margin-bottom:13px}.credits-repo{display:inline-flex;align-items:center;gap:24px;min-height:44px;font-size:14px;font-weight:700;color:#8e1730;margin-top:8px}.credits-repo:hover{text-decoration:underline}.portfolio-credits .credits-rights{font-size:13px!important;margin-top:12px}
+@media(max-width:820px){.credits-grid{gap:32px}.portfolio-credits h2{font-size:29px}}
+@media(max-width:600px){.portfolio-credits{padding:44px 0}.credits-grid{grid-template-columns:1fr;gap:28px}.reuse-note{padding-left:20px}.portfolio-credits h2{font-size:30px}}
